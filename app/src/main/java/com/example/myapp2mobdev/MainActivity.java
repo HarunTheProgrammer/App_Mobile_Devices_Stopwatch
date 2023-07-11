@@ -3,6 +3,7 @@ package com.example.myapp2mobdev;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -76,7 +77,12 @@ public class MainActivity extends AppCompatActivity {
         }
         textViewRequiredTime.setText(requiredTimeString);
         
-
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                go_start();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -291,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
         Heart3.setVisibility(View.VISIBLE);
         Heart4.setVisibility(View.VISIBLE);
         Heart5.setVisibility(View.VISIBLE);
+    }
+    public void go_start(){
+        Intent intent= new Intent(this, Start.class);
+        startActivity(intent);
+
     }
 
     public void initializeStartValues(){
