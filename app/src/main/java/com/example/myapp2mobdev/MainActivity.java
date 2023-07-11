@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                     score=0;
                     currentScore=0;
                     multiplicator=0;
-                    lifes=0;
+                    lifes=5;
                     initializeStartValues();
                     gameState=0;
                 }
