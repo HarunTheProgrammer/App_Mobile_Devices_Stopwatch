@@ -167,4 +167,14 @@
             android:layout_height="wrap_content"
             android:text="@string/current_score" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exitString"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

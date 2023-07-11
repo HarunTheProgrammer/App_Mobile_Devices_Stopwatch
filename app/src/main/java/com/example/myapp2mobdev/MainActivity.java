@@ -17,6 +17,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private Button button;
+    private Button exitButton;
     private TextView textViewComment;
     private TextView textViewYourTime;
     private TextView textViewRequiredTime;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView Heart1;
     private TextView textViewHighScore;
     private TextView textViewCurrentScore;
-    private TextView textViewTimer;
     private int gameState = 0;
     private long startTime;
     private int lifes = 5;
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         textViewMultiplicator = findViewById(R.id.textViewMultiplicator);
         textViewCurrentScore=findViewById(R.id.textViewCurrentScore);
         textViewHighScore=findViewById(R.id.textViewHighScore);
+        exitButton = findViewById(R.id.exitButton);
 
         String requiredTimeString;
         if(randomGeneratedNumber==1){
@@ -194,14 +195,21 @@ public class MainActivity extends AppCompatActivity {
                             } else if (lifes == 1) {
                                 textViewComment.setText("This is your last life");
                             }
-                        } else if (lifes == 0) {
-
+                        }
+                        //lost the game
+                        else if (lifes == 0) {
                             textViewComment.setText("You lost!");
                             button.setBackgroundColor(getResources().getColor(R.color.dark_blue));
                             button.setText("Start over");
+                            exitButton.setBackgroundColor(getResources().getColor(R.color.purple));
+                            exitButton.setVisibility(View.VISIBLE);
                             gameState = 3;
                         }
                     }
+                    String multiplicatorString="Multiplicator: "+multiplicator+"x";
+                    String streakString="Streak: "+streak;
+                    textViewMultiplicator.setText(multiplicatorString);
+                    textViewStreak.setText(streakString);
                 }
                 // random number gets created and required time gets shown start button is visible again.
                 else if (gameState == 2) {
@@ -224,10 +232,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //State where you have no lifes left and can either restart or go back to title.
                 else if (gameState == 3) {
-
-
-
-
+                    //if clicked exit button disappears.
+                    exitButton.setVisibility(View.GONE);
+                    streak=0;
+                    score=0;
+                    currentScore=0;
+                    multiplicator=0;
+                    lifes=0;
+                    initializeStartValues();
+                    gameState=0;
                 }
             }
         });
@@ -251,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
         Heart3 = findViewById(R.id.imageView5);
         Heart2 = findViewById(R.id.imageView3);
         Heart1 = findViewById(R.id.imageView4);
-
         if (activeLives<1){
             Heart1.setVisibility(View.INVISIBLE);
         }
@@ -268,4 +280,52 @@ public class MainActivity extends AppCompatActivity {
             Heart5.setVisibility(View.INVISIBLE);
         }
     }
+    public void resurrectHearts(){
+        Heart5 = findViewById(R.id.imageView2);
+        Heart4 = findViewById(R.id.imageView);
+        Heart3 = findViewById(R.id.imageView5);
+        Heart2 = findViewById(R.id.imageView3);
+        Heart1 = findViewById(R.id.imageView4);
+        Heart1.setVisibility(View.VISIBLE);
+        Heart2.setVisibility(View.VISIBLE);
+        Heart3.setVisibility(View.VISIBLE);
+        Heart4.setVisibility(View.VISIBLE);
+        Heart5.setVisibility(View.VISIBLE);
+    }
+
+    public void initializeStartValues(){
+        //
+        textViewComment = findViewById(R.id.textViewComment);
+        textViewYourTime = findViewById(R.id.textViewYourTime);
+        textViewRequiredTime = findViewById(R.id.textViewRequiredTime);
+        textViewDifference = findViewById(R.id.textViewDifference);
+        textViewScore = findViewById(R.id.textViewScore);
+        textViewStreak = findViewById(R.id.textViewStreak);
+        textViewMultiplicator = findViewById(R.id.textViewMultiplicator);
+        textViewCurrentScore=findViewById(R.id.textViewCurrentScore);
+        textViewHighScore=findViewById(R.id.textViewHighScore);
+        exitButton = findViewById(R.id.exitButton);
+
+        textViewYourTime.setVisibility(View.INVISIBLE);
+        textViewDifference.setVisibility(View.INVISIBLE);
+        textViewStreak.setText("Streak: 0");
+        textViewMultiplicator.setText("Multiplicator: 1.0x");
+        textViewCurrentScore.setText("Current Score : 0");
+        textViewScore.setVisibility(View.INVISIBLE);
+        textViewComment.setText("Are you a perfect Stopwatch?");
+        button.setBackgroundColor(getResources().getColor(R.color.green));
+        button.setText("Start");
+        String requiredTimeString;
+        randomGeneratedNumber= generateRandomNumber(10);
+        resurrectHearts();
+        if(randomGeneratedNumber==1){
+            requiredTimeString = "Try stopping the time at 1 second";
+        }
+        else{
+            requiredTimeString = "Try stopping the time at " + randomGeneratedNumber + " seconds";
+        }
+        textViewRequiredTime.setText(requiredTimeString);
+
+    }
+
 }

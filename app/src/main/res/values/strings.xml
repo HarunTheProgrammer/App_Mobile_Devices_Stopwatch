@@ -4,10 +4,11 @@
     <string name="required_time">Try stopping the time at 1 second</string>
     <string name="difference">Difference: 0,05sek / 3,5%off</string>
     <string name="Score">Score 200 Points</string>
-    <string name="textViewStreakText">Streak: 1</string>
+    <string name="textViewStreakText">Streak: 0</string>
     <string name="textViewMultiplicatorText">Multiplicator: 1.0x</string>
     <string name="textViewCommentString">Test your inner stopwatch!</string>
     <string name="current_score">Current Score : 0</string>
     <string name="highScore">Highscore : 0</string>
+    <string name="exitString">Return to\n Titlescreen</string>
 
 </resources>
