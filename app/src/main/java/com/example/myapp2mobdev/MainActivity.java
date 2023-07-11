@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private int highScore = 0;
     private int score = 0;
     private double multiplicator = 1.0;
+    private int roundCounter=0;
     private int randomGeneratedNumber = generateRandomNumber(10);
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     button.setText("Play Again");
                     gameState++;
                     //Perfect Score
-                    if(differencePercent<15) {
+                    if(differencePercent<5) {
                         //Setting the score
                         score=(int)(200*multiplicator);
                         String scoreString = "double points: "+score;
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         streak++;
                     }
                     //Okay Score
-                    else if (differencePercent<25) {
+                    else if (differencePercent<10) {
                         //Setting the score
                         score=(int)(100*multiplicator);
                         String scoreString = "Score: "+score;
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     //Close Score
-                    else if (differencePercent<=35) {
+                    else if (differencePercent<=15) {
                         //Setting the score
                         score=(int)(50*multiplicator);
                         String scoreString = "Score: "+score;
@@ -191,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                         textViewHighScore.setText(highScoreString);
                     }
                     //What happens if you lose
-                    if (differencePercent > 35) {
+                    if (differencePercent > 20) {
                         lifes--;
                         DecreaseHearts(lifes);
                         textViewScore.setText("Score: 0");
@@ -201,6 +202,8 @@ public class MainActivity extends AppCompatActivity {
                             } else if (lifes == 1) {
                                 textViewComment.setText("This is your last life");
                             }
+                            multiplicator=1.0;
+                            streak=0;
                         }
                         //lost the game
                         else if (lifes == 0) {
@@ -212,10 +215,11 @@ public class MainActivity extends AppCompatActivity {
                             gameState = 3;
                         }
                     }
-                    String multiplicatorString="Multiplicator: "+multiplicator+"x";
+                    String multiplicatorString="Multiplicator: "+ (1.0+(double) streak/10)+"x";
                     String streakString="Streak: "+streak;
                     textViewMultiplicator.setText(multiplicatorString);
                     textViewStreak.setText(streakString);
+                    roundCounter++;
                 }
                 // random number gets created and required time gets shown start button is visible again.
                 else if (gameState == 2) {
@@ -226,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                     button.setBackgroundColor(getResources().getColor(R.color.green));
                     button.setText("Start");
                     //So the further you are with your streak the harder it is to score.
-                    randomGeneratedNumber= generateRandomNumber(10+streak/2);
+                    randomGeneratedNumber= generateRandomNumber(10+roundCounter*3);
                     String requiredTime;
                     if(randomGeneratedNumber==1){
                         requiredTime = "Try stopping the time at 1 second";
