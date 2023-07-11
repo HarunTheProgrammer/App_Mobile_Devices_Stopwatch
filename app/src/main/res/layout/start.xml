@@ -9,18 +9,16 @@
         android:id="@+id/Start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="324dp"
         android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="349dp"
-        android:layout_height="74dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,29 +28,38 @@
 
         <TextView
             android:id="@+id/last_score"
-            android:layout_width="131sp"
-            android:layout_height="50sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:background="@color/tallow"
+            android:text="@string/Last_Score_Text_Title_Screen" />
 
         <TextView
-            android:id="@+id/current_score"
-            android:layout_width="131sp"
-            android:layout_height="50sp"
+            android:id="@+id/high_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@color/beige"
+            android:textAlignment="center"
+            android:text="@string/highscore_Text_TitleScreen" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/Text_for_motivation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hallo lieber Spieler ich schlage euch um Sekunden"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:text="@string/Title_Text"
+        app:layout_constraintBottom_toTopOf="@+id/Start"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.495" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

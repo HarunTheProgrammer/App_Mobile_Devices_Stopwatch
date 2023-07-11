@@ -10,5 +10,9 @@
     <string name="current_score">Current Score : 0</string>
     <string name="highScore">Highscore : 0</string>
     <string name="exitString">Return to\n Titlescreen</string>
+    <string name="Title_Text">Welcome to my GAME \nare you ready for a challenge?</string>
+    <string name="highscore_Text_TitleScreen">Highscore:\n0000</string>
+    <string name="Last_Score_Text_Title_Screen">Last Score:\n0000</string>
+    <string name="highScoreValue">0</string>
 
 </resources>

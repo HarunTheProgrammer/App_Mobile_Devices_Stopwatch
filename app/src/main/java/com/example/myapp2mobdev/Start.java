@@ -14,32 +14,28 @@ public class Start extends AppCompatActivity {
     private Button Start;
     private TextView Last_score;
     private TextView Current_score;
+    private String CurrentScore="Last Score:\n0000";
+    private String HighScore= "Highest score:\n0000";
+    private int highScoreInt=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start);
         Start=findViewById(R.id.Start);
         Last_score=findViewById(R.id.last_score);
-        Current_score=findViewById(R.id.current_score);
-
+        Current_score=findViewById(R.id.high_score);
+        Current_score.setText(HighScore);
+        Last_score.setText(CurrentScore);
         Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 open_game();
-
-
             }
         });
-
-
-
-
     }
 
     public void open_game(){
         Intent game= new Intent(this, MainActivity.class);
         startActivity(game);
-
-
     }
 }

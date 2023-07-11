@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         textViewHighScore=findViewById(R.id.textViewHighScore);
         exitButton = findViewById(R.id.exitButton);
 
+
         String requiredTimeString;
         if(randomGeneratedNumber==1){
             requiredTimeString = "Try stopping the time at 1 second";
@@ -305,8 +306,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void go_start(){
         Intent intent= new Intent(this, Start.class);
+        String highScoreString= "High Score:\\n"+highScore;
+        String lastScoreString="Last Score:\\n"+currentScore;
+        intent.putExtra("HighScore",highScoreString);
+        intent.putExtra("CurrentScore",lastScoreString);
+        intent.putExtra("highScoreInt",highScore);
         startActivity(intent);
-
     }
 
     public void initializeStartValues(){
