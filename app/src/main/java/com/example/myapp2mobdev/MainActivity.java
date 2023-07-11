@@ -225,7 +225,8 @@ public class MainActivity extends AppCompatActivity {
                     // Change button color to green and text to "Start"
                     button.setBackgroundColor(getResources().getColor(R.color.green));
                     button.setText("Start");
-                    randomGeneratedNumber= generateRandomNumber(10);
+                    //So the further you are with your streak the harder it is to score.
+                    randomGeneratedNumber= generateRandomNumber(10+streak/2);
                     String requiredTime;
                     if(randomGeneratedNumber==1){
                         requiredTime = "Try stopping the time at 1 second";
