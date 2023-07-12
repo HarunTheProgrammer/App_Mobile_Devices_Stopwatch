@@ -2,12 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue">#36C8F4</color>
+    <color name="blue">#3b9696</color>
     <color name="red">#C2392F</color>
-    <color name="green">#63FC49</color>
+    <color name="green">#42ad50</color>
     <color name="dark_blue">#3F51B5</color>
-    <color name="gold">#EBFFE32B</color>
-    <color name="purple">#B60B9A</color>
-    <color name="beige">#BE9A2B</color>
+    <color name="gold">#D3812A</color>
+    <color name="purple">#38196b</color>
     <color name="tallow">#9EFFD8</color>
+    <color name="yellow">#FED06D</color>
+    <color name="orange">#65F7A228</color>
+    <color name="greyish">#F9A323</color>
+    <color name="background_myAPP">#FED06D</color>
 </resources>
